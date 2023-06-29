@@ -25,6 +25,15 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "permissions": ["CAMERA", "MEDIA_LIBRARY"],
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "cameraPermission": "The app needs access to your camera in order to take photos of you favorite places."
+        }
+      ]
+    ]
   }
 }
