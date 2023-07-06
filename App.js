@@ -7,10 +7,26 @@ import AddPlaces from "./screens/AddPlaces";
 import Button from "./components/ui/Button";
 import { Colors } from "./constants/colors";
 import Map from "./screens/Map";
+import { useEffect, useState } from "react";
+import { init } from "./util/database";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const [databaseInitialized, setDatabaseInitialized] = useState();
+
+  useEffect(() => {
+    init() // to launch the database
+      .then(() => {
+        setDatabaseInitialized(true);
+      })
+      .createPlaceHandler((error) => console.log(error));
+  }, []);
+
+  if (!databaseInitialized) {
+    return <AppLoading />;
+  }
+
   return (
     <>
       <StatusBar style="dark" />
