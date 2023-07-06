@@ -9,6 +9,7 @@ import { Colors } from "./constants/colors";
 import Map from "./screens/Map";
 import { useEffect, useState } from "react";
 import { init } from "./util/database";
+import PlacesDetails from "./screens/PlacesDetails";
 
 const Stack = createNativeStackNavigator();
 
@@ -61,6 +62,11 @@ export default function App() {
             options={{ title: "Add a new place" }}
           />
           <Stack.Screen name="Map" component={Map} />
+          <Stack.Screen
+            name="Placesdetails"
+            component={PlacesDetails}
+            options={{ title: "Loading Place..." }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
